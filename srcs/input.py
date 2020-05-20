@@ -6,6 +6,7 @@ from srcs.survey import Survey
 class SurveyController:
     def __init__(self):
         self._surveys = []
+        self._survey_names = []
         self._id_counter = 0
 
     def print_help(self):
@@ -14,9 +15,10 @@ class SurveyController:
 
     def new_survey(self):
         print("Let's create a new survey !")
-        survey = Survey(self._id_counter)
+        survey = Survey(self._id_counter, self._survey_names)
         self._id_counter += 1
         self._surveys.append(survey)
+        self._survey_names.append(survey._name)
         return self.input_start()
 
     def exit_input(self):
@@ -33,7 +35,9 @@ class SurveyController:
         return self.input_start()
 
     def survey_list(self):
-        print("Here are all the surveys")
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id) + " : " + survey._name)
         return self.input_start()
 
     def survey_stats(self):
