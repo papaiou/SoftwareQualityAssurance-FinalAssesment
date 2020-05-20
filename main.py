@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from sys import argv, exit
-from srcs.input import input_start
+from srcs.input import SurveyController
 
 def usage():
     print("USAGE : ./main.py\nInstructions will be displayed "\
@@ -14,4 +14,5 @@ if __name__ == '__main__':
     if len(argv) != 1:
         exit(usage())
     print("Welcome to the Survey monitor !")
-    exit(input_start())
+    controller = SurveyController()
+    exit(controller.input_start())
