@@ -18,7 +18,7 @@ class Survey:
                 print("Name already used for another Survey !")
                 self._name = ""
         while self._nb_questions == 0:
-            number = input("How many questions do you want for the survey? :")
+            number = input("How many questions do you want for the survey? : ")
             if not number.isdigit() or int(number) > 10 or int(number) < 1:
                 print("Number of question must be between 1 and 10")
             self._nb_questions = int(number)
@@ -44,7 +44,7 @@ class Survey:
             j = 0
             repeat = False
 
-            number = input("Which question do you want to put in your survey? :")
+            number = input("Which question do you want to put in your survey? : ")
             if not number.isdigit() or int(number) < 1 or int(number) > len(lines):
                 print("Please enter a number between 1 and " + str(len(lines)) + ".")
                 continue
