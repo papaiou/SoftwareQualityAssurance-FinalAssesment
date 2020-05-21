@@ -39,6 +39,7 @@ class Survey:
         for line in data:
             lines.append(line[:-1])
             print("Question " + str(len(lines)) + ": " + line[:-1])
+        data.close()
         while i < self._nb_questions:
             j = 0
             repeat = False
