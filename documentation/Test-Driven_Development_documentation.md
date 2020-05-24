@@ -24,3 +24,12 @@ The final goal was to find every possible user experience and handle it in our U
 ## Last problem with unit test?
 
 At the end of the project, a problem occurred with the add_question() method test. I was obliged to split one unit test outside of the unit test file. Indeed, this test changes the database's number of questions and many other tests are based on this value.
+
+## Run unit tests
+
+If you want to run unit tests, you need to go in the `unittest/` directory and make the following command : 
+```bash
+python3 ./Survey_unittest.py ; python ./Add_question_unittest.py 
+```
+
+Warning : If you want to run those unit tests, please make sure that the file `/srcs/.database.txt` has no changes. (do not forget to delete `Question 21` between 2 runs [here](../srcs/.database.txt))
