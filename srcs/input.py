@@ -8,6 +8,7 @@ class SurveyController:
         self._surveys = []
         self._survey_names = []
         self._id_counter = 0
+        print("Welcome to the Survey monitor !")
 
     def print_help(self):
         print("HELP")
@@ -75,13 +76,39 @@ class SurveyController:
         return self.input_start()
 
     def new_survey_response(self):
-        print("Here is a new survey response : ")
-        self.survey_list()
-        self._surveys[0].new_response()
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to answer ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        self._surveys[choice].new_response()
         return self.input_start()
 
     def get_survey_response(self):
-        print("Here are all the survey responses : ")
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to answer ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        self._surveys[choice].get_response()
         return self.input_start()
 
     def input_start(self):
