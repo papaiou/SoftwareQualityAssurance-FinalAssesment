@@ -1,0 +1,2 @@
+USAGE : ./main.py
+Instructions will be displayed on the screen. For more information, please, take a look at the README.md file or the documentation/ directory
