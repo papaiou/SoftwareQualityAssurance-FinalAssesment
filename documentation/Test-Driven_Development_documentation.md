@@ -21,4 +21,6 @@ Unit test were focused on SurveyResponse class and the statistical methods.
 
 Final goal were to find every possible user experience and handle it in our Unittest program.
 
+## Last problem with unit test?
+
 At the end of the project, a problem occured with the add_question() method test. I was obliged to split one unittest outside of the unittest file. Indeed, this test change the database's number of question and many other tests are based on this value.
