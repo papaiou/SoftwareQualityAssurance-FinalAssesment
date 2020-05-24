@@ -1,0 +1,4 @@
+Welcome to the Survey monitor !
+what do you want ? : Which question do you wanna add ? : Question already in the database !
+what do you want ? : Which question do you wanna add ? : new question permenently added : Question 21
+what do you want ? : Thanks a lot and see you soon !

@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 from srcs.survey import Survey
 
 class SurveyController:
@@ -8,9 +9,20 @@ class SurveyController:
         self._surveys = []
         self._survey_names = []
         self._id_counter = 0
+        print("Welcome to the Survey monitor !")
 
     def print_help(self):
-        print("HELP")
+        print("Welcome to the Survey monitor help. Here, you will find every possible commands to manage our Survey monitor :")
+        print("\ta|-a|add|add question : Permanently add a question to our fake database.")
+        print("\te|-e|exit : Exit the monitor and the program.")
+        print("\tgs|-gs|get survey : Display all informations available about a Survey.")
+        print("\tgsr|-gsr|get survey response: Display all informations available about a Survey Response.")
+        print("\th|-h|help : Print this help panel.")
+        print("\tl|-l|list|list survey|survey list: List all Surveys created.")
+        print("\tns|-ns|new survey : Create a new Survey.")
+        print("\tnsr|-nsr|new survey response: Create a new Survey Response.")
+        print("\tss|-ss|survey stats|survey statistics : Display all statistics available about a Survey.")
+        print("\tqs|-qs|question stats|question statistics : Display all statistics available about a question.")
         return self.input_start()
 
     def new_survey(self):
@@ -26,8 +38,20 @@ class SurveyController:
         return 0
 
     def add_question(self):
-        new_question = input("Which question do you wanna add ? : ")
-        print("new question added : " + new_question)
+        new_question = ""
+        while not new_question:
+            new_question = input("Which question do you wanna add ? : ")
+
+        data = open(os.path.dirname(__file__) + "/.database.txt", "r")
+
+        for line in data:
+            if new_question == line[:-1]:
+                print("Question already in the database !")
+                data.close()
+                return self.input_start()
+        with open(os.path.dirname(__file__) + "/.database.txt", 'a') as f:
+            f.write(new_question + "\n") 
+        print("new question permenently added : " + new_question)
         return self.input_start()
 
     def get_survey(self):
@@ -63,25 +87,99 @@ class SurveyController:
             return self.input_start()
         print("Here are all surveys you had created : ")
         for survey in self._surveys:
-            print(str(survey._id) + " : " + survey._name)
+            print(str(survey._id + 1) + " : " + survey._name)
         return self.input_start()
 
     def survey_stats(self):
-        print("Here are the stats of the survey you want : ")
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to see statistics ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        if self._surveys[choice]._id_response == 0:
+            print("No surveys response have been created for this survey !")
+            return self.input_start()
+        self._surveys[choice].display_stats()
         return self.input_start()
 
     def question_stats(self):
-        print("Here are the stats for the question you want : ")
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to see statistics ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        if self._surveys[choice]._id_response == 0:
+            print("No surveys response have been created for this survey !")
+            return self.input_start()
+        print("Here are the questions of this survey :")
+        
+        i = 0
+        while i < self._surveys[choice]._nb_questions:
+            print(str(i + 1) + " : " + self._surveys[choice]._questions[i])
+            i += 1
+        question = 6
+        while question == 6:
+            number = input("On which question of this survey do you want to see statistics ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > self._surveys[choice]._nb_questions:
+                print("Please enter a number between 1 and " + str(self._surveys[choice]._nb_questions) + ".")
+                continue
+            question = int(number)
+        question -= 1
+        self._surveys[choice].display_question_stats(question)
         return self.input_start()
 
     def new_survey_response(self):
-        print("Here is a new survey response : ")
-        self.survey_list()
-        self._surveys[0].new_response()
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to answer ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        self._surveys[choice].new_response()
         return self.input_start()
 
     def get_survey_response(self):
-        print("Here are all the survey responses : ")
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to answer ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        self._surveys[choice].get_response()
         return self.input_start()
 
     def input_start(self):

@@ -1,0 +1,13 @@
+Welcome to the Survey monitor !
+what do you want ? : Welcome to the Survey monitor help. Here, you will find every possible commands to manage our Survey monitor :
+	a|-a|add|add question : Permanently add a question to our fake database.
+	e|-e|exit : Exit the monitor and the program.
+	gs|-gs|get survey : Display all informations available about a Survey.
+	gsr|-gsr|get survey response: Display all informations available about a Survey Response.
+	h|-h|help : Print this help panel.
+	l|-l|list|list survey|survey list: List all Surveys created.
+	ns|-ns|new survey : Create a new Survey.
+	nsr|-nsr|new survey response: Create a new Survey Response.
+	ss|-ss|survey stats|survey statistics : Display all statistics available about a Survey.
+	qs|-qs|question stats|question statistics : Display all statistics available about a question.
+what do you want ? : Thanks a lot and see you soon !
