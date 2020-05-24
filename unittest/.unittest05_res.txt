@@ -1,0 +1,34 @@
+Welcome to the Survey monitor !
+what do you want ? : Let's create a new survey !
+What is the name of your new Survey? : How many questions do you want for the survey? : Here are all questions available for the Surveys : 
+Question 1: Question 1
+Question 2: Question 2
+Question 3: Question 3
+Question 4: Question 4
+Question 5: Question 5
+Question 6: Question 6
+Question 7: Question 7
+Question 8: Question 8
+Question 9: Question 9
+Question 10: Question 10
+Question 11: Question 11
+Question 12: Question 12
+Question 13: Question 13
+Question 14: Question 14
+Question 15: Question 15
+Question 16: Question 16
+Question 17: Question 17
+Question 18: Question 18
+Question 19: Question 19
+Question 20: Question 20
+Which question do you want to put in your survey? : Question number 7 added.
+Which question do you want to put in your survey? : Question number 2 added.
+Which question do you want to put in your survey? : Question number 5 added.
+Which question do you want to put in your survey? : Question number 19 added.
+Which question do you want to put in your survey? : Question number 20 added.
+Which question do you want to put in your survey? : Question number 12 added.
+Which question do you want to put in your survey? : Question number 3 added.
+Which question do you want to put in your survey? : Question number 14 added.
+Which question do you want to put in your survey? : Question number 16 added.
+Which question do you want to put in your survey? : Question number 15 added.
+what do you want ? : Thanks a lot and see you soon !
