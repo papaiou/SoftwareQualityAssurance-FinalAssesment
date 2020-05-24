@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 from srcs.survey import Survey
 
 class SurveyController:
@@ -11,7 +12,17 @@ class SurveyController:
         print("Welcome to the Survey monitor !")
 
     def print_help(self):
-        print("HELP")
+        print("Welcome to the Survey monitor help. Here, you will find every possible commands to manage our Survey monitor :")
+        print("\ta|-a|add|add question : Permanently add a question to our fake database.")
+        print("\te|-e|exit : Exit the monitor and the program.")
+        print("\tgs|-gs|get survey : Display all informations available about a Survey.")
+        print("\tgsr|-gsr|get survey response: Display all informations available about a Survey Response.")
+        print("\th|-h|help : Print this help panel.")
+        print("\tl|-l|list|list survey|survey list: List all Surveys created.")
+        print("\tns|-ns|new survey : Create a new Survey.")
+        print("\tnsr|-nsr|new survey response: Create a new Survey Response.")
+        print("\tss|-ss|survey stats|survey statistics : Display all statistics available about a Survey.")
+        print("\tqs|-qs|question stats|question statistics : Display all statistics available about a question.")
         return self.input_start()
 
     def new_survey(self):
@@ -27,8 +38,20 @@ class SurveyController:
         return 0
 
     def add_question(self):
-        new_question = input("Which question do you wanna add ? : ")
-        print("new question added : " + new_question)
+        new_question = ""
+        while not new_question:
+            new_question = input("Which question do you wanna add ? : ")
+
+        data = open(os.path.dirname(__file__) + "/.database.txt", "r")
+
+        for line in data:
+            if new_question == line[:-1]:
+                print("Question already in the database !")
+                data.close()
+                return self.input_start()
+        with open(os.path.dirname(__file__) + "/.database.txt", 'a') as f:
+            f.write(new_question + "\n") 
+        print("new question permenently added : " + new_question)
         return self.input_start()
 
     def get_survey(self):
