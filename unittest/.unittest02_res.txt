@@ -1,0 +1,8 @@
+Welcome to the Survey monitor !
+what do you want ? : bad_input ! Use "help" to see how to use it !
+what do you want ? : bad_input ! Use "help" to see how to use it !
+what do you want ? : bad_input ! Use "help" to see how to use it !
+what do you want ? : bad_input ! Use "help" to see how to use it !
+what do you want ? : bad_input ! Use "help" to see how to use it !
+what do you want ? : bad_input ! Use "help" to see how to use it !
+what do you want ? : Thanks a lot and see you soon !
