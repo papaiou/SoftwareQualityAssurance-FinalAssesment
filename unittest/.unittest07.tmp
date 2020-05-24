@@ -24,7 +24,7 @@ Question 19: Question 19
 Question 20: Question 20
 Which question do you want to put in your survey? : Question number 7 added.
 what do you want ? : Here are all surveys you had created : 
-1 : single question
+0 : single question
 what do you want ? : Let's create a new survey !
 What is the name of your new Survey? : How many questions do you want for the survey? : Here are all questions available for the Surveys : 
 Question 1: Question 1
@@ -58,6 +58,6 @@ Which question do you want to put in your survey? : Question number 14 added.
 Which question do you want to put in your survey? : Question number 16 added.
 Which question do you want to put in your survey? : Question number 15 added.
 what do you want ? : Here are all surveys you had created : 
-1 : single question
-2 : multiple question
+0 : single question
+1 : multiple question
 what do you want ? : Thanks a lot and see you soon !
