@@ -1,6 +1,6 @@
 # Code coverage documentation
 
-In this section we will talk about result obtained on the code coverage tf this project. But before about this, we need to see how does it work.
+In this section we will talk about result obtained on the code coverage of this project. But before about this, we need to see how does it work.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ This is the only requirement we need to run our program and our coverage.
 echo `cat unittest/entire_test.txt` | coverage run main.py && coverage report
 ```
 
-This command allow you to run the project with all unittest at the same time. You will see the output of the program followed by our coverage report :
+This command allows you to run the project with all unit tests at the same time. You will see the output of the program followed by our coverage report :
 
 ![coverage](./assets/coverage.png)
 
