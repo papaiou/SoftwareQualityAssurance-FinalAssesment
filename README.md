@@ -11,4 +11,4 @@ Final assesment of the Software Quality Assurance module.
   - [x] [SurveyController class](documentation/SurveyController_documentation.md)
   - [x] [Survey class](documentation/Survey_documentation.md)
   - [x] [SurveyResponse class](documentation/SurveyResponse_documentation.md)
-- [Project Log Document (PLD)](documentation/Project_Log_Document.md)
+- [x] [Project Log Document (PLD)](documentation/Project_Log_Document.md)
