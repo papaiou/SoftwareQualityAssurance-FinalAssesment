@@ -21,6 +21,7 @@ class Survey:
             number = input("How many questions do you want for the survey? : ")
             if not number.isdigit() or int(number) > 10 or int(number) < 1:
                 print("Number of question must be between 1 and 10")
+                continue
             self._nb_questions = int(number)
         self.new_survey()
 
