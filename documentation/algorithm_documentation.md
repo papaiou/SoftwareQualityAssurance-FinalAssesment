@@ -4,7 +4,7 @@ This algorithm was made with 3 classes.
 
 ## SurveyController Class
 
-This class represents the prompt of the project. It handles 10 commands and different ways to understand a command. You can see available commands [here](./SurveyCotroller_documentation.md).
+This class represents the prompt of the project. It handles 10 commands and different ways to understand a command. You can see available commands [here](./SurveyController_documentation.md).
 
 This class is the only thing called by the main function and it calls the two other classes of the project.
 
