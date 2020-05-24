@@ -13,6 +13,5 @@ def usage():
 if __name__ == '__main__':
     if len(argv) != 1:
         exit(usage())
-    print("Welcome to the Survey monitor !")
     controller = SurveyController()
     exit(controller.input_start())
