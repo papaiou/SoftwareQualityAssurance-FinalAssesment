@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 from srcs.survey_response import SurveyResponse
 from random import randrange
 
@@ -33,7 +34,7 @@ class Survey:
 
     def new_survey(self):
         print("Here are all questions available for the Surveys : ")
-        data = open("./srcs/.database.txt", "r")
+        data = open(os.path.dirname(__file__) + "/.database.txt", "r")
         i = 0
         lines = []
 
