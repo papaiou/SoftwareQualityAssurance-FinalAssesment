@@ -19,7 +19,7 @@ echo `cat unittest/entire_test.txt` | coverage run main.py && coverage report
 
 This command allow you to run the project with all unittest at the same time. You will see the output of the program followed by our coverage report :
 
-![coverage](./coverage.png)
+![coverage](./assets/coverage.png)
 
 In this report, we can see that at least 95% of the project is covered by our tests.
 
