@@ -87,7 +87,7 @@ class SurveyController:
             return self.input_start()
         print("Here are all surveys you had created : ")
         for survey in self._surveys:
-            print(str(survey._id) + " : " + survey._name)
+            print(str(survey._id + 1) + " : " + survey._name)
         return self.input_start()
 
     def survey_stats(self):
