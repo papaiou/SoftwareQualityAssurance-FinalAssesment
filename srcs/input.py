@@ -68,11 +68,59 @@ class SurveyController:
         return self.input_start()
 
     def survey_stats(self):
-        print("Here are the stats of the survey you want : ")
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to see statistics ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        if self._surveys[choice]._id_response == 0:
+            print("No surveys response have been created for this survey !")
+            return self.input_start()
+        self._surveys[choice].display_stats()
         return self.input_start()
 
     def question_stats(self):
-        print("Here are the stats for the question you want : ")
+        if self._surveys == []:
+            print("No surveys have been created !")
+            return self.input_start()
+        print("Here are all surveys you had created : ")
+        for survey in self._surveys:
+            print(str(survey._id + 1) + " : " + survey._name)
+        choice = 0
+        while choice == 0:
+            number = input("Which survey do you want to see statistics ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > len(self._surveys):
+                print("Please enter a number between 1 and " + str(len(self._surveys)) + ".")
+                continue
+            choice = int(number)
+        choice -= 1
+        if self._surveys[choice]._id_response == 0:
+            print("No surveys response have been created for this survey !")
+            return self.input_start()
+        print("Here are the questions of this survey :")
+        
+        i = 0
+        while i < self._surveys[choice]._nb_questions:
+            print(str(i + 1) + " : " + self._surveys[choice]._questions[i])
+            i += 1
+        question = 6
+        while question == 6:
+            number = input("On which question of this survey do you want to see statistics ? : ")
+            if not number.isdigit() or int(number) < 1 or int(number) > self._surveys[choice]._nb_questions:
+                print("Please enter a number between 1 and " + str(self._surveys[choice]._nb_questions) + ".")
+                continue
+            question = int(number)
+        question -= 1
+        self._surveys[choice].display_question_stats(question)
         return self.input_start()
 
     def new_survey_response(self):

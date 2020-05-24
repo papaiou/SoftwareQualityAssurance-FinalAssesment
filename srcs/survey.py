@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import statistics
 from srcs.survey_response import SurveyResponse
 from random import randrange
 
@@ -99,4 +100,40 @@ class Survey:
         while i < self._nb_questions:
             print(str(i + 1) + " : " + self._questions[i] + " --> " + str(self._responses[choice]._responses[i]))
             i += 1
+        return 0
+
+    def display_stats(self):
+        datas = []
+        for response in self._responses:
+            for answer in response._responses:
+                datas.append(int(answer))
+        average = statistics.mean(datas)
+        std_dev = statistics.stdev(datas)
+        min_value = min(datas)
+        max_value = max(datas)
+        print("Here are all statistics about this survey :")
+        print("Survey name : " + self._name)
+        print("Survey ID : " + str(self._id))
+        print("Minimum value : " + str(min_value))
+        print("Maximum value : " + str(max_value))
+        print("Average value : " + str(average))
+        print("Standard deviation value : " + str(std_dev))
+        return 0
+
+    def display_question_stats(self, i):
+        datas = []
+        for response in self._responses:   
+            datas.append(int(response._responses[i]))
+        average = statistics.mean(datas)
+        std_dev = statistics.stdev(datas)
+        min_value = min(datas)
+        max_value = max(datas)
+        print("Here are all statistics about this survey :")
+        print("Survey name : " + self._name)
+        print("Survey ID : " + str(self._id))
+        print("Question number : " + str(i))
+        print("Minimum value : " + str(min_value))
+        print("Maximum value : " + str(max_value))
+        print("Average value : " + str(average))
+        print("Standard deviation value : " + str(std_dev))
         return 0
